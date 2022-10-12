@@ -7,20 +7,24 @@ import { MainLayoutComponent } from './shared/main-layout/main-layout.component'
 import { MainPageComponent } from './main-page/main-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
-
+import { AuthService } from './shared/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './shared/guards/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
     MainPageComponent,
     ProductPageComponent,
-    CartPageComponent
+    CartPageComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,37 +7,45 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from '../shared/guards/auth.guard';
+import { LoginGuard } from '../shared/guards/login.guard';
 
 const adminRoutes: Routes = [
   {
     path: '',
     redirectTo: '/admin/login',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'login',
-    component: LoginPageComponent
+    component: LoginPageComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'dashboard',
-    component: DashboardPageComponent
+    component: DashboardPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add',
-    component: AddPageComponent
+    component: AddPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'product/:id/edit',
-    component: EditPageComponent
+    component: EditPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'orders',
-    component: OrdersPageComponent
+    component: OrdersPageComponent,
+    canActivate: [AuthGuard]
   },
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild([
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule.forChild([
     {
       path: '',
       component: AdminLayoutComponent,

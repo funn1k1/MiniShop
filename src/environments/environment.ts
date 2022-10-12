@@ -2,8 +2,12 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+import { IEnvironment } from './IEnvironment';
+
+export const environment: IEnvironment = {
+  production: false,
+  apiKey: 'AIzaSyDckVAk80mQLyP_ScweSYNs5TIUMG-qLdM',
+  fdDbUrl: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword'
 };
 
 /*
