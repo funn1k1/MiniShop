@@ -10,6 +10,7 @@ import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from '../shared/guards/auth.guard';
 import { LoginGuard } from '../shared/guards/login.guard';
+import { QuillModule } from 'ngx-quill';
 
 const adminRoutes: Routes = [
   {
@@ -45,7 +46,7 @@ const adminRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule.forChild([
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, QuillModule.forRoot(), RouterModule.forChild([
     {
       path: '',
       component: AdminLayoutComponent,

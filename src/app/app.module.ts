@@ -10,6 +10,7 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { QuillConfigModule, QuillModule } from 'ngx-quill';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    QuillModule.forRoot()
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
