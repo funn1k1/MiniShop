@@ -27,4 +27,12 @@ export class ProductService {
   getById(id: string) {
     return this.http.get<Product>(`${environment.fbDbUrl}/products/${id}.json`);
   }
+
+  remove(id: string) {
+    return this.http.delete(`${environment.fbDbUrl}/products/${id}.json`)
+  }
+
+  update(product: Product) {
+    return this.http.patch(`${environment.fbDbUrl}/products/${product.id}.json`, product);
+  }
 }
