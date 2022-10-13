@@ -14,7 +14,7 @@ export class AddPageComponent implements OnInit {
   submitted = false;
   modules = {};
 
-  constructor(private productServ: ProductService, private router: Router) {
+  constructor(private prodServ: ProductService, private router: Router) {
     this.modules = {
       'toolbar': [
         ['image']
@@ -45,10 +45,10 @@ export class AddPageComponent implements OnInit {
       price: this.form.value.price,
       date: new Date()
     };
-    this.productServ.create(product).subscribe(res => {
-      console.log(res);
+    this.prodServ.create(product).subscribe(res => {
+      this.form.reset();
+      this.router.navigate(['/']);
       this.submitted = false;
-      this.router.navigate(['/'])
     });
   }
 }
