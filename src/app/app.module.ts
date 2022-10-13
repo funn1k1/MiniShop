@@ -11,6 +11,7 @@ import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { QuillConfigModule, QuillModule } from 'ngx-quill';
+import { ProductService } from './shared/services/product.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,6 @@ import { QuillConfigModule, QuillModule } from 'ngx-quill';
     MainPageComponent,
     ProductPageComponent,
     CartPageComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ import { QuillConfigModule, QuillModule } from 'ngx-quill';
     AppRoutingModule,
     QuillModule.forRoot()
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, ProductService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

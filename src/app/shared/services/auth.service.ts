@@ -9,7 +9,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(user: User) {
-    return this.http.post<User>(`${environment.fdDbUrl}?key=${environment.apiKey}`, user).pipe(
+    return this.http.post<User>(`${environment.fbSignInUrl}?key=${environment.apiKey}`, user).pipe(
       tap(this.setToken)
     );
   }
