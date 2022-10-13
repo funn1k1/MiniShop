@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/shared/interfaces/Product';
 import { ProductService } from '../../shared/services/product.service';
 
@@ -13,7 +14,7 @@ export class AddPageComponent implements OnInit {
   submitted = false;
   modules = {};
 
-  constructor(private productServ: ProductService) {
+  constructor(private productServ: ProductService, private router: Router) {
     this.modules = {
       'toolbar': [
         ['image']
@@ -35,7 +36,7 @@ export class AddPageComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-
+    this.submitted = true;
     const product: Product = {
       type: this.form.value.type,
       name: this.form.value.name,
@@ -44,6 +45,10 @@ export class AddPageComponent implements OnInit {
       price: this.form.value.price,
       date: new Date()
     };
-    this.productServ.create(product).subscribe(res => console.log(res));
+    this.productServ.create(product).subscribe(res => {
+      console.log(res);
+      this.submitted = false;
+      this.router.navigate(['/'])
+    });
   }
 }
