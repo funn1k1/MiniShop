@@ -9,9 +9,22 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   create(prod: Product) {
-    return this.http.post<any>(`${environment.fbDbUrl}/products.json`, prod).pipe(map((val) => ({
-      id: val.name,
+    return this.http.post<any>(`${environment.fbDbUrl}/products.json`, prod).pipe(map((res) => ({
+      id: res.name,
       ...prod
     })));
+  }
+
+  getAll() {
+    return this.http.get<any>(`${environment.fbDbUrl}/products.json`).pipe(map(res => Object.keys(res).map(key => {
+      return ({
+        id: key,
+        ...res[key]
+      });
+    })));
+  }
+
+  getById(id: string) {
+    return this.http.get<Product>(`${environment.fbDbUrl}/products/${id}.json`);
   }
 }
