@@ -6,6 +6,8 @@ import { Product } from '../interfaces/Product';
 
 @Injectable()
 export class ProductService {
+  type: string = 'Phone';
+
   constructor(private http: HttpClient) { }
 
   create(prod: Product) {
@@ -34,5 +36,9 @@ export class ProductService {
 
   update(prod: Product) {
     return this.http.patch(`${environment.fbDbUrl}/products/${prod.id}.json`, prod);
+  }
+
+  setType(type: string) {
+    this.type = type;
   }
 }

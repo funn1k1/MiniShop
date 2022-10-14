@@ -14,6 +14,7 @@ import { QuillConfigModule, QuillModule } from 'ngx-quill';
 import { ProductService } from './shared/services/product.service';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { ProductComponent } from './product/product.component';
+import { SortingPipe } from './shared/pipes/sorting.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProductComponent } from './product/product.component';
     ProductPageComponent,
     CartPageComponent,
     ProductComponent,
+    SortingPipe,
   ],
   imports: [
     BrowserModule,

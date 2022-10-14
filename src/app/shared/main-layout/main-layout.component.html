@@ -2,16 +2,16 @@
   <h2>Mini Shop</h2>
   <ul>
     <li routerLinkAhctive="active">
-      <a [routerLink]="['/product', '1']">Phone</a>
+      <a (click)="setType('phone')">Phone</a>
     </li>
     <li routerLinkActive="active">
-      <a [routerLink]="['/product', '2']">Tablet</a>
+      <a (click)="setType('tablet')">Tablet</a>
     </li>
     <li routerLinkActive="active">
-      <a [routerLink]="['/product', '3']">Laptop</a>
+      <a (click)="setType('laptop')">Laptop</a>
     </li>
     <li routerLinkActive="active">
-      <a routerLink="cart">Cart</a>
+      <a (click)="setType('cart')">Cart</a>
     </li>
   </ul>
 </nav>
