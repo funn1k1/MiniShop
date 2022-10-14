@@ -27,7 +27,7 @@
     <quill-editor id="descr" formControlName="description"></quill-editor>
   </div>
   <div class="form-control">
-    <label for="price">Price</label>
+    <label for="price">Price($)</label>
     <input id="price" type="number" formControlName="price">
     <div *ngIf="form.get('price').touched && form.get('price').invalid" class="validation">
       <small *ngIf="form.get('price').errors['required']">Enter price</small>

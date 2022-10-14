@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from '../shared/guards/auth.guard';
 import { LoginGuard } from '../shared/guards/login.guard';
 import { QuillModule } from 'ngx-quill';
+import { SearchPipe } from '../shared/pipes/search.pipe';
 
 const adminRoutes: Routes = [
   {
@@ -46,6 +47,15 @@ const adminRoutes: Routes = [
 ];
 
 @NgModule({
+  declarations: [
+    AdminLayoutComponent,
+    LoginPageComponent,
+    AddPageComponent,
+    DashboardPageComponent,
+    EditPageComponent,
+    OrdersPageComponent,
+    SearchPipe
+  ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, QuillModule.forRoot(), RouterModule.forChild([
     {
       path: '',
@@ -54,13 +64,5 @@ const adminRoutes: Routes = [
     }
   ])],
   exports: [RouterModule],
-  declarations: [
-    AdminLayoutComponent,
-    LoginPageComponent,
-    AddPageComponent,
-    DashboardPageComponent,
-    EditPageComponent,
-    OrdersPageComponent
-  ]
 })
 export class AdminModule { }

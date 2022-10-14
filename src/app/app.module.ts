@@ -14,6 +14,7 @@ import { QuillConfigModule, QuillModule } from 'ngx-quill';
 import { ProductService } from './shared/services/product.service';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { ProductComponent } from './product/product.component';
+
 @NgModule({
   declarations: [
     AppComponent,
