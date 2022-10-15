@@ -16,6 +16,8 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { ProductComponent } from './product/product.component';
 import { SortingPipe } from './shared/pipes/sorting.pipe';
 import { CartService } from './shared/services/cart.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderService } from './shared/services/order.service';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,15 @@ import { CartService } from './shared/services/cart.service';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, ProductService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     multi: true,
     useClass: AuthInterceptor
-  }, CartService],
+  }, CartService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,8 +15,8 @@ export class CartService {
     this.products$.next(JSON.parse(localStorage.getItem("products")));
   }
 
-  remove(id: string) {
-    this.products = this.products.filter(p => p.id !== id);
+  remove(product: Product) {
+    this.products.splice(this.products.indexOf(product), 1);
     localStorage.setItem("products", JSON.stringify(this.products));
     this.products$.next(JSON.parse(localStorage.getItem("products")));
   }
