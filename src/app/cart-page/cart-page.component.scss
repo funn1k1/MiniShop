@@ -1,0 +1,13 @@
+tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container {
+  max-width: 900px;
+}

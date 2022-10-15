@@ -15,6 +15,7 @@ import { ProductService } from './shared/services/product.service';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { ProductComponent } from './product/product.component';
 import { SortingPipe } from './shared/pipes/sorting.pipe';
+import { CartService } from './shared/services/cart.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { SortingPipe } from './shared/pipes/sorting.pipe';
     provide: HTTP_INTERCEPTORS,
     multi: true,
     useClass: AuthInterceptor
-  }],
+  }, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

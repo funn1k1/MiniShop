@@ -17,13 +17,11 @@ export class MainLayoutComponent implements OnInit {
   
   setType(type: string) {
     this.type = type;
-    if (this.type !== 'Cart') {
-      this.router.navigate(['/'], {
-        queryParams: {
-          type: this.type
-        }
-      });
-    }
+    this.router.navigate(['/'], {
+      queryParams: {
+        type: this.type
+      }
+    });
     this.prodServ.setType(this.type);
   }
 }
