@@ -1,4 +1,12 @@
 <div *ngIf="products$ | async as products" class="main">
-  <app-product *ngFor="let product of products | sorting: prodServ.type " class="box" [product]="product">
-  </app-product>
+  <div *ngIf="prodServ.type; else noSorting" class="main__products">
+    <app-product *ngFor="let product of products | sorting: prodServ.type " class="box" [product]="product">
+    </app-product>
+  </div>
+  <ng-template #noSorting>
+    <div class="main__products">
+      <app-product *ngFor="let product of products" class="box" [product]="product">
+      </app-product>
+    </div>
+  </ng-template>
 </div>

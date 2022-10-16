@@ -10,7 +10,7 @@
           <quill-view-html [content]="product.image"> </quill-view-html>
         </div>
         <div>
-          <h2>Price: {{product.price}}</h2>
+          <h2>Price: {{product.price | currency}}</h2>
           <button class="btn btn-dark" routerLink="/cart" (click)="addProduct(product)">Add to cart</button>
         </div>
       </div>

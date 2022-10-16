@@ -6,7 +6,7 @@ import { Product } from '../interfaces/Product';
 
 @Injectable()
 export class ProductService {
-  type: string = 'Phone';
+  type: string;
 
   constructor(private http: HttpClient) { }
 

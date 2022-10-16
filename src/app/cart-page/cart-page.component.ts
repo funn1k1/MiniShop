@@ -15,6 +15,7 @@ export class CartPageComponent implements OnInit {
   totalPrice = 0;
   submitted = false;
   form: FormGroup;
+  status = '';
 
   constructor(private cartServ: CartService, private orderServ: OrderService) { }
 
@@ -51,7 +52,8 @@ export class CartPageComponent implements OnInit {
     console.log(this.form);
     this.orderServ.create(order).subscribe(_ => {
       this.form.reset();
-      this.submitted = true;
+      this.submitted = false;
+      this.status = 'Delivery is arranged';
     })
   }
 
