@@ -18,6 +18,8 @@ import { SortingPipe } from './shared/pipes/sorting.pipe';
 import { CartService } from './shared/services/cart.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderService } from './shared/services/order.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,13 @@ import { OrderService } from './shared/services/order.service';
     AppRoutingModule,
     QuillModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [AuthService, ProductService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,
